@@ -1,6 +1,7 @@
 # GirlsInTechApi
 
-Contains a starter .NET Core 3.1 to demonstrate App Service deployment
+## Contents
+Contains a starter .NET Core 3.1 to demonstrate App Service deployment as an extension to Lab2 - pt1
 
 ## (Try this at home)
 It's totally possible to build your ASP.NET Core application locally and push it out to the app service
@@ -18,6 +19,13 @@ It's totally possible to build your ASP.NET Core application locally and push it
 - At this point the result of `dotnet publish` need to be packaged into a `.zip` file using your preferred method
   - If you don't have a preference, we recommend using [7-zip](https://www.7-zip.org/)
 - The application can be deployed using:
-```bash
-az webapp deployment source config-zip --src <path-to-zip-file> --name <app-service-name> --resource-group <resource-group>
-```
+  ```bash
+  az webapp deployment source config-zip \
+    --src <path-to-zip-file> \
+    --name <app-service-name> \
+    --resource-group <resource-group>
+  ```
+- This should trigger the upload of your `dotnet publish`'ed application into an App Service
+- Verify that the application is running
+  - Using your preferred browser navigate to: `http://<app-service-name>.azurewebsites.net/weatherforecast`
+  - Expect a JSON response containing fake weather data
